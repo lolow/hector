@@ -1,0 +1,6 @@
+Sun Dec 21 18:18:39 2014:NOTICE:main: hector wrapper start
+Sun Dec 21 18:18:39 2014:DEBUG:h_reader: h_reader created for hector_rcp26.ini
+Sun Dec 21 18:18:39 2014:NOTICE:parse: Parsing hector_rcp26.ini
+Sun Dec 21 18:18:39 2014:NOTICE:main: Creating and initializing the core.
+Sun Dec 21 18:18:39 2014:NOTICE:main: Setting data in the core.
+Sun Dec 21 18:18:39 2014:WARNING:setData: Disabling onelineocean

@@ -1,0 +1,7 @@
+Sun Dec 21 18:16:01 2014:DEBUG:init: hello ocean
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting spinup_chem[-1]=0
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting tt[-1]=72000000
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting tu[-1]=49000000
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting twi[-1]=12500000
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting tid[-1]=200000000
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting k[-1]=0.2

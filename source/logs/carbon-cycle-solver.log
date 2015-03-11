@@ -1,0 +1,5 @@
+Sun Dec 21 18:16:01 2014:DEBUG:init: carbon-cycle-solver initialized.
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting eps_abs[-1]=1.0e-6
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting eps_rel[-1]=1.0e-6
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting dt[-1]=0.25
+Sun Dec 21 18:16:01 2014:DEBUG:setData: Setting eps_spinup[-1]=0.001
