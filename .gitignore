@@ -26,6 +26,9 @@ source/hector
 
 # Hector logs
 logs/*.*
+input/logs/*.*
+source/logs/*.*
+
 
 # OS-specific files
 .DS_Store
