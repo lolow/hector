@@ -1,9 +1,9 @@
 CXX	= g++
-CXXFLAGS = -g  $(INCLUDES) $(OPTFLAGS) $(CXXEXTRA) $(CXXPROF) $(WFLAGS) -MMD
-INCLUDES = -I$(BOOSTROOT) -I$(HDRDIR) -I$(GSLINC)
+CXXFLAGS = -g $(INCLUDES) $(OPTFLAGS) $(CXXEXTRA) $(CXXPROF) $(WFLAGS) -MMD
+INCLUDES = -I$(BOOSTROOT) -I$(HDRDIR)
 WFLAGS   = -Wall -Wno-unused-local-typedefs # Turn on warnings, turn off one particularly annoying one that infests Boost libs
 OPTFLAGS = -O3
-LDFLAGS	 = $(CXXPROF) -L$(GSLLIB) -L. -Wl,-rpath=$(GSLLIB)
+LDFLAGS	 = $(CXXPROF) -L$(BOOSTLIB) -L. -Wl,-rpath $(BOOSTLIB)
 
 export CXXFLAGS OPTFLAGS
 
@@ -19,6 +19,11 @@ endif
 ifeq ($(strip $(BOOSTROOT)),)
 BOOSTROOT	= $(HOME)/src/boost_$(BOOSTVERSION)
 endif
+ifeq ($(strip $(BOOSTLIB)),)
+## Default is the location used by the build scripts included with Boost, but
+## this can be overridden by setting BOOSTROOT explicitly in the enviornment.
+BOOSTLIB = $(BOOSTROOT)/stage/lib
+endif
 
 ## Gtest root
 GTVERS	= 1.5.0
@@ -26,23 +31,7 @@ GTROOT	= $(HROOT)/libs/gtest-$(GTVERS)
 GTINC	= $(GTROOT)/include
 GTLIB	= $(GTROOT)/lib/.libs
 
-## Location of GSL (default is /usr/local -- can be overridden by environment)
-ifeq ($(strip $(GSLROOT)),)
-GSLROOT	= /usr/local
-endif
-
-## Set the GSL include and library locations.  There is a special case for Evergreen users.
-ifeq ($(strip $(GSLROOT)),EVERGREEN)
-GSLINC  = $(GSL_INC)
-GSLLIB  = $(GSL_LIB)
-# remove warning flags on Evergreen too:  old version of g++
-CXXFLAGS = -g  $(INCLUDES) $(OPTFLAGS) $(CXXEXTRA) $(CXXPROF) -MMD
-else
-GSLINC	= $(GSLROOT)/include
-GSLLIB	= $(GSLROOT)/lib
-endif
-
-export GTLIB GTINC GSLINC GSLLIB
+export GTLIB GTINC
 
 
 ## component subdirectories
@@ -55,15 +44,15 @@ DEPS	= $(SRCS:.cpp=.d)
 
 ## default target
 hector: libhector.a main.o
-	$(CXX) $(LDFLAGS) -o hector main.o -lhector -lgsl -lgslcblas -lm
+	$(CXX) $(LDFLAGS) -o hector main.o -lhector -lm -lboost_system -lboost_filesystem
 
 ## alternate version that uses the capabilities needed for driving
 ## hector from an external source (e.g., an IAM) 
-## DO NOT BUILD THIS TARGET UNLESS YOU ARE TESTING HECTOR'S INTERNAL
-## PLUMBING.  It uses some hard-coded emissions for testing and likely
+## DO NOT BUILD THIS TARGET UNLESS YOU ARE TESTING HECTOR'S API
+## FUNCTIONALITY.  It uses some hard-coded emissions for testing and likely
 ## will not do what you want it to under all circumstances.
-# hector-ext: libhector.a main-ext.o
-# 	$(CXX) $(LDFLAGS) -o hector-ext main-ext.o -lhector -lgsl -lgslcblas -lm
+# hector-api: libhector.a main-api.o
+# 	$(CXX) $(LDFLAGS) -o hector-api main-api.o -lhector -lgsl -lgslcblas -lm
 
 ## Targets that do not literally name files
 .PHONY: subdirs $(DIRS) clean test gtest

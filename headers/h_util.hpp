@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 #ifndef H_UTIL_H
 #define H_UTIL_H
 /*
@@ -20,7 +26,7 @@
  * \brief The model version number to be included in logs and outputs.
  * \note This must be updated manually when the model version changes.
  */
-#define MODEL_VERSION "1.0"
+#define MODEL_VERSION "1.1"
 
 #define OUTPUT_DIRECTORY "output/"
 

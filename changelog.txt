@@ -1,0 +1,28 @@
+Hector 1.1.2
+============
+
+* Add libhector target OS X and Windows project files (it was already
+  available in the Linux build).  This library library is used when
+  you want to link Hector to an outside program.
+
+Hector 1.1.1
+============
+
+* Fix OS X build
+* Update sample output files
+* Add GPL license
+
+Hector 1.1
+===========
+
+* API for linking with external models.
+
+* Backend R scripts faster and cleaner.
+
+* Minor bug fixes and documentation updates.
+
+
+Hector 1.0
+===========
+
+* First release. Corresponds to Hartin et al. (2015), http://www.geosci-model-dev.net/8/939/2015/gmd-8-939-2015.pdf.

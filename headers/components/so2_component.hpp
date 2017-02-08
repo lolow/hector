@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 #ifndef SULFUR_COMPONENT_H
 #define SULFUR_COMPONENT_H
 /*

@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 #ifndef ORGANIC_CARBON_COMPONENT_H
 #define ORGANIC_CARBON_COMPONENT_H
 /*

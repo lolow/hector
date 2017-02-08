@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 /*
  *  main.cpp - wrapper entry point
  *  hector
@@ -84,16 +90,19 @@ int main (int argc, char * const argv[]) {
         H_LOG( glog, Logger::NOTICE ) << "Hector wrapper end" << endl;
         glog.close();
     }
-    // catch( h_exception e ) {
-    //     cerr << "* Program exception: " << e.msg << "\n* Function " << e.func << ", file "
-    //     << e.file << ", line " << e.linenum << endl;
-    // }
+    catch( h_exception e ) {
+        cerr << "* Program exception: " << e.msg << "\n* Function " << e.func << ", file "
+        << e.file << ", line " << e.linenum << endl;
+        return 1;
+    }
     catch( std::exception &e ) {
         cerr << "Standard exception: " << e.what() << endl;
+        return 2;
     }
-    // catch( ... ) {
-    //     cerr << "Other exception! " << endl;
-    // }
+    catch( ... ) {
+        cerr << "Other exception! " << endl;
+        return 3;
+    }
 
     return 0;
 }

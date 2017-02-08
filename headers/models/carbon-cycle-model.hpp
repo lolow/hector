@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 #ifndef CARBON_CYCLE_MODEL_HPP_
 #define CARBON_CYCLE_MODEL_HPP_
 
@@ -25,6 +31,9 @@
 // Signal from model to the solver that, while we haven't failed,
 // need to stash C values and re-try reaching next timestep
 #define CARBON_CYCLE_RETRY 1234
+
+// Signal from model to the solver that all calculations were successful
+#define ODE_SUCCESS 0
 
 namespace Hector {
 

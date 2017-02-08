@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 #ifndef INI_TO_CORE_READER_H
 #define INI_TO_CORE_READER_H
 /*
@@ -35,7 +41,10 @@ class INIToCoreReader {
     private:
     //! Weak reference to a Core object that will handle parsed values
     Core* core;
-    
+
+    //! Path of the INI file
+    std::string iniFilePath;
+
     //! The exception set by value handler should an exception occur.
     //! Note that this would only be valid if valueHandler returned
     //! an error code.

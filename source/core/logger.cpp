@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 /*
  *  logger.cpp
  *  hector
@@ -9,6 +15,7 @@
 #include <time.h>
 #include "core/logger.hpp"
 #include "h_util.hpp"
+#include <algorithm>
 
 #if defined (__unix__) || defined (__MACH__)
 #include <unistd.h>
@@ -294,4 +301,3 @@ void Logger::printLogHeader( const LogLevel writeLevel ) {
 }
 
 }
-

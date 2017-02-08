@@ -1,3 +1,9 @@
+/* Hector -- A Simple Climate Model
+   Copyright (C) 2014-2015  Battelle Memorial Institute
+
+   Please see the accompanying file LICENSE.md for additional licensing
+   information.
+*/
 #ifndef OCEANBOX_HPP_
 #define OCEANBOX_HPP_
 
@@ -15,9 +21,6 @@
 #include "math.h"
 #include <stdio.h> 
 #include <algorithm>
-#include <gsl/gsl_errno.h>
-#include <gsl/gsl_math.h>
-#include <gsl/gsl_min.h>
 
 #include "core/logger.hpp"
 #include "data/unitval.hpp"
@@ -89,7 +92,7 @@ public:
     // Ocean box chemistry
     oceancsys mychemistry;      //<! box chemistry
 	bool active_chemistry;      //<! box has active chemistry model?
-	void chem_equilibrate();    //<! equilibrate chemistry model to a given flux
+	void chem_equilibrate( const unitval current_Ca );    //<! equilibrate chemistry model to a given flux
     double fmin( double alk, void *params );
 
     unitval atmosphere_flux;
